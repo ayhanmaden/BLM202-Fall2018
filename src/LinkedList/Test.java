@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package LinkedList;
 
 /**
@@ -12,19 +11,20 @@ package LinkedList;
  * @author Muhammet Alkan
  */
 public class Test {
+
     public static void main(String[] args) {
         LinkedList<String> l1 = new LinkedList<>();
-        
+
         l1.addFirst("node1");
         l1.addFirst("node2");
         l1.addLast("node3");
         l1.addFirst("node4");
         l1.addFirst("node5");
         l1.insertAfter("node4", "node6");
-        
+
         l1.print();
         System.out.println("size : " + l1.size());
-        
+
         LinkedList<Integer> l2 = new LinkedList<>();
         l2.addFirst(12);
         l2.addFirst(132);
@@ -32,8 +32,13 @@ public class Test {
         l2.addFirst(993332);
         l2.addFirst(2);
         l2.addFirst(3472);
-        
+
+        // without hashcode()
         int max = l2.max();
         System.out.println(max);
+
+        // solution by using hashcode()
+        System.out.println(l1.maxGeneric());  // String comparison
+        System.out.println(l2.maxGeneric());  // Integer comparison
     }
 }

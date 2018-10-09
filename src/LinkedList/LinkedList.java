@@ -86,19 +86,22 @@ public class LinkedList<T> {
         return size;
     }
 
-    T maxT() {
-        Node<T> temp = head;
-        T max = (T) new Integer(0);
+    T maxGeneric() {
 
-        while (temp != null) {
-            if (max.hashCode() < temp.data.hashCode()) {
-                max = temp.data;
+        if (head != null) {
+            T max = head.data;
+            Node<T> temp = head.nextNode;
+
+            while (temp != null) {
+                if (max.hashCode() < temp.data.hashCode()) {
+                    max = temp.data;
+                }
+                temp = temp.nextNode;
             }
-
-            temp = temp.nextNode;
+            return max;
         }
 
-        return max;
+        return null;
     }
 
     Integer max() {
